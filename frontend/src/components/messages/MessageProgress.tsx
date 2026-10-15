@@ -111,7 +111,6 @@ function ProgressTimeline({ steps }: { steps: ProgressStep[] }) {
   );
 }
 
-/** Loads a message's status events and renders its progress timeline. */
 export function MessageProgress({ messageId }: { messageId: number }) {
   const query = useApiQuery(`message:${messageId}`, (signal) => getMessage(messageId, signal));
 

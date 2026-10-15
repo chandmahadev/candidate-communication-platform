@@ -64,7 +64,6 @@ export function StatusChip({ status }: { status: MessageStatus }) {
   );
 }
 
-/** Placeholder shown wherever a value does not exist yet. */
 export function NotAvailable() {
   return (
     <Typography component="span" variant="body2" sx={{ color: "text.disabled" }}>

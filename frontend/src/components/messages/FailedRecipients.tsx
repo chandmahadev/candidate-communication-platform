@@ -26,7 +26,7 @@ export function toRecipientResult(message: Message): RecipientResult {
 }
 
 interface FailedRecipientsProps {
-  /** Results for every recipient that failed on the first attempt, updated in place as they are retried. */
+  /** Initial failures, updated in place as they are retried. */
   results: RecipientResult[];
   total: number;
   candidates: Map<number, Candidate>;

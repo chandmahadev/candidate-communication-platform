@@ -23,7 +23,6 @@ interface AppDialogProps {
   children: ReactNode;
 }
 
-/** Modal matching the design: bold title with a close icon, content, divider and right-aligned actions. */
 export function AppDialog({ open, title, busy = false, onClose, onExited, onSubmit, actions, children }: AppDialogProps) {
   const titleId = useId();
   const isMobile = useIsMobile();

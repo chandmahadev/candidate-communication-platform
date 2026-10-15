@@ -1,10 +1,5 @@
-"""Messaging business logic: sending, bulk sending, retries and provider status updates.
+"""Business logic for sending messages, retries, and provider status updates."""
 
-Each message is committed in its own transaction, so one recipient's failure
-cannot roll back another recipient's message. Regular sends call the provider
-outside any transaction; retries call it while holding a row lock on the
-original message so the same failure cannot be retried twice concurrently.
-"""
 import logging
 from dataclasses import dataclass
 
@@ -58,7 +53,7 @@ class EventConflict(MessagingError):
     code = 'event_id_conflict'
 
 
-# Sending ---------------------------------------------------------------------
+# Sending
 
 
 def _call_provider(provider, recipient, body):
@@ -132,7 +127,7 @@ def bulk_send(candidates, body, *, provider=None):
     return results
 
 
-# Retries ---------------------------------------------------------------------
+# Retries
 
 
 def retry_message(message_id, *, provider=None):
@@ -168,7 +163,7 @@ def retry_message(message_id, *, provider=None):
         return send_message(original.candidate, original.body, retry_of=original, provider=provider)
 
 
-# Provider status updates -----------------------------------------------------
+# Provider status updates
 
 
 def is_valid_transition(current, new):

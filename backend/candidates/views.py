@@ -48,7 +48,7 @@ class CandidateDetailView(generics.RetrieveDestroyAPIView):
 
 
 class CandidateBulkDeleteView(APIView):
-    """POST {"ids": [...]}: delete several candidates (and their history) in one transaction."""
+    """POST {"ids": [...]}: delete several candidates in one transaction."""
 
     def post(self, request):
         serializer = BulkDeleteCandidatesSerializer(data=request.data)
@@ -59,7 +59,7 @@ class CandidateBulkDeleteView(APIView):
         return Response({'deleted': len(ids)}, status=status.HTTP_200_OK)
 
 
-# Messaging -------------------------------------------------------------------
+# Messaging
 
 
 def _error_response(exc, http_status):

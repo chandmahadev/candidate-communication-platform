@@ -11,10 +11,7 @@ const GAP_PX = 8;
 
 const chipSx = { bgcolor: "rgba(0, 0, 0, 0.08)", fontSize: "0.8125rem" } as const;
 
-/**
- * Shows as many recipient chips as fit in two lines and summarises the rest as "+ n".
- * Chips are measured in an invisible copy of the list so the visible one never jumps.
- */
+/** Chips are measured in a hidden copy of the list so the visible one doesn't jump. */
 export function RecipientChips({ recipients }: { recipients: Candidate[] }) {
   const measureRef = useRef<HTMLDivElement>(null);
   const [visibleCount, setVisibleCount] = useState(recipients.length);

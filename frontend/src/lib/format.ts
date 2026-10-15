@@ -11,7 +11,7 @@ function parseDate(iso: string | null | undefined): Date | null {
   return Number.isNaN(date.getTime()) ? null : date;
 }
 
-/** DD-MM-YYYY, as used throughout the design. */
+/** DD-MM-YYYY */
 export function formatDate(iso: string | null | undefined): string {
   const date = parseDate(iso);
   if (!date) return "NA";
@@ -31,10 +31,7 @@ export function formatDateTime(iso: string | null | undefined): string {
   return date ? dateTimeFormatter.format(date) : "—";
 }
 
-/**
- * Separates the country code from the subscriber number for display,
- * e.g. "+919876543210" -> "+91 9876543210". Other formats are shown as entered.
- */
+/** "+919876543210" -> "+91 9876543210"; other formats are returned unchanged. */
 export function formatPhone(phone: string): string {
   const compact = phone.replace(/[\s\-().]/g, "");
   const match = /^\+(\d{1,3})(\d{10})$/.exec(compact);

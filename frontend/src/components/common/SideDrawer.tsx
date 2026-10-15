@@ -18,7 +18,6 @@ interface SideDrawerProps {
   children: ReactNode;
 }
 
-/** Right-hand panel used for sending messages and viewing communication history. */
 export function SideDrawer({ open, title, busy = false, onClose, onExited, footer, children }: SideDrawerProps) {
   const titleId = useId();
   const close = () => {

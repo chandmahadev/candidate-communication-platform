@@ -12,7 +12,7 @@ PHONE_MAX_DIGITS = 15  # E.164 maximum
 
 
 class CandidateSerializer(serializers.ModelSerializer):
-    # Populated by `with_last_message()`; None for candidates who were never messaged.
+    # Annotated by candidates_with_last_message(); None if never messaged.
     last_message_at = serializers.SerializerMethodField()
     last_message_status = serializers.SerializerMethodField()
 
@@ -60,7 +60,7 @@ class CandidateSerializer(serializers.ModelSerializer):
         return value
 
 
-# Messaging -------------------------------------------------------------------
+# Messaging
 
 MESSAGE_BODY_MAX_LENGTH = 1600
 BULK_SEND_MAX_RECIPIENTS = 500

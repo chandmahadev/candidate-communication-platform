@@ -12,7 +12,6 @@ interface MessageFieldProps {
   error?: string | null;
 }
 
-/** Resizable message textarea with the "n/1600" character counter. */
 export function MessageField({ value, onChange, disabled = false, error }: MessageFieldProps) {
   const inputId = useId();
   const helperId = useId();

@@ -103,7 +103,7 @@ class DummyProvider(BaseProvider):
             'Recipient is not reachable on this channel (simulated).',
         )
 
-    # Status simulation -------------------------------------------------------
+    # Status simulation
 
     def simulate_status_update(
         self, provider_message_id, status, *, occurred_at=None, event_id=None,
