@@ -1,7 +1,5 @@
 # Candidate Communication Platform
 
-A full-stack Candidate Communication Platform developed as part of a technical coding assignment.
-
 The application allows recruiters to manage candidates, send individual and bulk messages, track delivery statuses, handle failures, and view communication history.
 
 ## Tech Stack
